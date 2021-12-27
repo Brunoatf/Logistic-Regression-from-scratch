@@ -64,6 +64,10 @@ class LogisticRegression:
                 model_graph.set_yticks(np.linspace(-10,10,5))
                 model_graph.set_zlabel("Probability of belonging to the red class")
             
+            else:
+                raise ValueError('''The input data has a dimension higher than 2. Therefore, it is impossible to plot
+                the sigmoid function, as it will require a n-dimensional coordinate system with n > 3''')
+            
             model_graph.set_title("Sigmoid curve:")
 
             camera = Camera(fig)
@@ -127,4 +131,3 @@ class LogisticRegression:
 model = LogisticRegression()
 
 model.train(np.array([[1,0],[2,5],[3,-1],[4,7],[5,8],[6,4],[7,8]]), np.array([1,1,1,0,0,0,0]), 0.05, 150, True)
-#model.test(np.array([[1],[2],[3],[4],[5],[6],[7],[8]]), np.array([0,0,0,1,1,1,1,1]))
